@@ -1,5 +1,6 @@
-package indi.midreamsheep.schatapp.frame.net.entity.protocol.result;
+package indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.data.result;
 
+import indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.data.ChatTransmissionData;
 import indi.midreamsheep.schatapp.frame.net.util.json.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Result {
+public class Result implements ChatTransmissionData {
     /**
      * 响应码
      * */
@@ -28,7 +29,7 @@ public class Result {
     public Result(ResultEnum resultEnum) {
         new Result(resultEnum,"");
     }
-    public Result(ResultEnum resultEnum,String data) {
+    public Result(ResultEnum resultEnum, String data) {
         this.code = resultEnum.getCode();
         this.msg = resultEnum.getMsg();
         this.data = data;
@@ -37,5 +38,10 @@ public class Result {
     @Override
     public String toString() {
         return JsonUtil.getBeanToJson(this);
+    }
+
+    @Override
+    public String toJson() {
+        return toString();
     }
 }
