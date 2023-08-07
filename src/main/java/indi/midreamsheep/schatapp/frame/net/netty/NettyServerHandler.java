@@ -15,6 +15,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, String msg) throws Exception {
         ChatTransmission chatTransmission = JsonUtil.getJsonToBean(msg, ChatTransmission.class);
+        System.out.println(chatTransmission);
         ChatHandler a;
         if (chatTransmission.getId()==-1){
             a = typeHandler.get(chatTransmission.getType());
@@ -22,7 +23,6 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
             a = ChatHandlerIdRecall.getRecall(chatTransmission.getId());
         }
         if (a==null){
-            System.out.println("null");
             return;
         }
         a.handler(ctx, chatTransmission.getData());

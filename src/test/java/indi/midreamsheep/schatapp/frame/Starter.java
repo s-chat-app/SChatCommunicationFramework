@@ -16,6 +16,9 @@ public class Starter {
         builder.addTypeHandler(TransmissionEnum.SEND_MESSAGE.getCode(), ((ctx, data) -> {
             System.out.println(data);
         }));
+        builder.addTypeHandler(TransmissionEnum.LOGIN.getCode(), ((ctx, data) -> {
+            System.out.println(data);
+        }));
         SChatCommunication communication = builder.build();
         communication.systemService.login(123456);
         //进行注册

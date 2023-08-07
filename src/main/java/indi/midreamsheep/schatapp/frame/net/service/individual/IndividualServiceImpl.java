@@ -28,7 +28,6 @@ public class IndividualServiceImpl extends AbstractService implements Individual
             System.out.println(data);
             System.out.println(id+"->send success");
         }));
-        System.out.println(chatMessage);
         channel.writeAndFlush(chatMessage.toString());
     }
 
