@@ -6,7 +6,7 @@ import indi.midreamsheep.schatapp.frame.net.entity.chat.ChatMapping;
 import indi.midreamsheep.schatapp.frame.net.entity.chat.ChatMessage;
 import indi.midreamsheep.schatapp.frame.net.entity.chat.ChatType;
 import indi.midreamsheep.schatapp.frame.net.entity.chat.message.Message;
-import indi.midreamsheep.schatapp.frame.net.entity.chat.message.send.SendMessage;
+import indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.transmission.SendMessage;
 import indi.midreamsheep.schatapp.frame.net.service.AbstractService;
 import io.netty.channel.Channel;
 

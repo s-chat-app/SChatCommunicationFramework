@@ -4,7 +4,7 @@ import indi.midreamsheep.schatapp.frame.net.api.handler.id.ChatHandlerIdRecall;
 import indi.midreamsheep.schatapp.frame.net.entity.chat.ChatMapping;
 import indi.midreamsheep.schatapp.frame.net.entity.chat.ChatMessage;
 import indi.midreamsheep.schatapp.frame.net.entity.chat.ChatType;
-import indi.midreamsheep.schatapp.frame.net.entity.chat.message.system.PrivateKey;
+import indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.transmission.PrivateKey;
 import io.netty.channel.Channel;
 
 public class SystemServiceImpl implements SystemService{

@@ -1,4 +1,4 @@
-package indi.midreamsheep.schatapp.frame.net.entity.chat.message.system;
+package indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.transmission;
 
 import indi.midreamsheep.schatapp.frame.net.util.json.JsonUtil;
 import lombok.AllArgsConstructor;

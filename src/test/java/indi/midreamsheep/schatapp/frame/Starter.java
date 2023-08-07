@@ -2,10 +2,8 @@ package indi.midreamsheep.schatapp.frame;
 
 import indi.midreamsheep.schatapp.frame.net.SChatCommunication;
 import indi.midreamsheep.schatapp.frame.net.SChatCommunicationBuilder;
-import indi.midreamsheep.schatapp.frame.net.entity.chat.message.Message;
-import indi.midreamsheep.schatapp.frame.net.entity.chat.message.MessageTypeEnum;
-import indi.midreamsheep.schatapp.frame.net.entity.chat.message.send.SendMessage;
 import indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.TransmissionEnum;
+import indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.transmission.SendMessage;
 
 import java.util.Scanner;
 
@@ -20,14 +18,14 @@ public class Starter {
             System.out.println(data);
         }));
         SChatCommunication communication = builder.build();
-        communication.systemService.login(123456);
+        communication.systemService.login(1234567);
         //进行注册
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String data = scanner.nextLine();
             SendMessage message = new SendMessage();
             message.setMessageTo(1);
-            message.setMessage(new Message(MessageTypeEnum.TEXT,data));
+            message.setMessage(message.toString());
             communication.individualService.sendMsg(message);
         }
     }
