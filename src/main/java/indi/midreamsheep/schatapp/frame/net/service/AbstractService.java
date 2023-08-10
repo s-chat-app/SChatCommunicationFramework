@@ -3,9 +3,9 @@ package indi.midreamsheep.schatapp.frame.net.service;
 import io.netty.channel.Channel;
 
 public class AbstractService {
-    protected final Channel channel;
+    protected Channel channel;
 
-    public AbstractService(Channel channel) {
+    public void setChannel(Channel channel) {
         this.channel = channel;
     }
 }

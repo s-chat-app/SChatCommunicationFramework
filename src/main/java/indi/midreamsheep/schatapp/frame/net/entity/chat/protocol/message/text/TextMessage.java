@@ -1,4 +1,4 @@
-package indi.midreamsheep.schatapp.frame.net.entity.chat.message.text;
+package indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.message.text;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
