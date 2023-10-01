@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SChatCommunicationFramework:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SChatCommunicationFramework_jar</output-path>
+    <root id="archive" name="SChatCommunicationFramework.jar">
+      <element id="module-output" name="SChatCommunicationFramework" />
+      <element id="extracted-dir" path="E:/environment/java/maven/repository/io/netty/netty-all/5.0.0.Alpha1/netty-all-5.0.0.Alpha1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/environment/java/maven/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/environment/java/maven/repository/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/environment/java/maven/repository/cn/hutool/hutool-all/5.8.8/hutool-all-5.8.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

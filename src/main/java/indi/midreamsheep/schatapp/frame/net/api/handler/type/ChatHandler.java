@@ -1,5 +1,7 @@
 package indi.midreamsheep.schatapp.frame.net.api.handler.type;
 
+import com.alibaba.fastjson.JSONObject;
+import indi.midreamsheep.schatapp.frame.net.netty.ChatSender;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
@@ -9,8 +11,8 @@ import io.netty.channel.ChannelHandlerContext;
 public interface ChatHandler {
     /**
      * 处理器处理方法
-     * @param ctx 通道上下文
+     * @param sender 发送器
      * @param data 数据
      * */
-    void handler(ChannelHandlerContext ctx, String data);
+    void handler(ChatSender sender, JSONObject data) throws Exception;
 }

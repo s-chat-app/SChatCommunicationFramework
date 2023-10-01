@@ -1,6 +1,5 @@
-package indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.data.result;
+package indi.midreamsheep.schatapp.frame.net.protocol.resonse.data.result;
 
-import indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.data.ChatTransmissionData;
 import indi.midreamsheep.schatapp.frame.net.util.json.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +7,13 @@ import lombok.NoArgsConstructor;
 
 /**
  * 用于服务器对用户端数据的回应
+ * 接收{@link ResultData}类
+ * 对于特定的处理逻辑可以自定义枚举类实现{@link ResultData}接口
  * */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Result implements ChatTransmissionData {
+public class Result {
     /**
      * 响应码
      * */
@@ -26,13 +27,17 @@ public class Result implements ChatTransmissionData {
      * */
     private String data;
 
-    public Result(ResultEnum resultEnum) {
-        this(resultEnum,"");
+    public Result(ResultData resultData) {
+        this(resultData,"");
     }
-    public Result(ResultEnum resultEnum, String data) {
-        this.code = resultEnum.getCode();
-        this.msg = resultEnum.getMsg();
+    public Result(ResultData resultData, String data) {
+        this.code = resultData.getCode();
+        this.msg = resultData.getMsg();
         this.data = data;
+    }
+
+    public Result(ResultData resultData,ResultData data){
+        this(resultData,JsonUtil.getBeanToJson(data));
     }
 
     @Override
@@ -40,8 +45,4 @@ public class Result implements ChatTransmissionData {
         return JsonUtil.getBeanToJson(this);
     }
 
-    @Override
-    public String toJson() {
-        return toString();
-    }
 }

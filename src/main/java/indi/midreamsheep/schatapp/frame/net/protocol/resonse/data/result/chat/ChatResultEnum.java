@@ -1,11 +1,15 @@
-package indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.data.result;
+package indi.midreamsheep.schatapp.frame.net.protocol.resonse.data.result.chat;
 
+import indi.midreamsheep.schatapp.frame.net.protocol.resonse.data.result.ResultData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * 聊天模块的错误码和错误信息
+ * */
 @AllArgsConstructor
 @Getter
-public enum ResultEnum {
+public enum ChatResultEnum implements ResultData {
     SUCCESS(200, "success"),
     ERROR(500, "error"),
     NOT_FOUND(404, "request processor not found"),
@@ -14,4 +18,6 @@ public enum ResultEnum {
     ;
     private final int code;
     private final String msg;
+
+    
 }

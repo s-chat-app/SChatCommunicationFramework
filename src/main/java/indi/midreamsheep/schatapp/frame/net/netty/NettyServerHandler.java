@@ -2,7 +2,7 @@ package indi.midreamsheep.schatapp.frame.net.netty;
 
 import indi.midreamsheep.schatapp.frame.net.api.handler.id.ChatHandlerIdRecall;
 import indi.midreamsheep.schatapp.frame.net.api.handler.type.ChatHandler;
-import indi.midreamsheep.schatapp.frame.net.entity.chat.protocol.ChatTransmission;
+import indi.midreamsheep.schatapp.frame.net.protocol.resonse.ChatTransmission;
 import indi.midreamsheep.schatapp.frame.net.util.json.JsonUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -25,7 +25,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
         if (a==null){
             return;
         }
-        a.handler(ctx, chatTransmission.getData());
+        a.handler(new ChatSender(ctx.channel()), chatTransmission.getData());
     }
 
     public NettyServerHandler(Map<Integer,ChatHandler> typeHandler){

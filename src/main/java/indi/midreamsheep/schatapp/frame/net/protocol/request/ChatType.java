@@ -1,4 +1,4 @@
-package indi.midreamsheep.schatapp.frame.net.entity.chat;
+package indi.midreamsheep.schatapp.frame.net.protocol.request;
 
 import lombok.Getter;
 
