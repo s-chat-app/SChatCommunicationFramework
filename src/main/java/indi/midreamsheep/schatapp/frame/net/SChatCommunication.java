@@ -25,16 +25,14 @@ public class SChatCommunication {
 
     private final ChatSender sender;
 
-    private String privateKey;
-
-    private final AtomicInteger isLogin = new AtomicInteger(0);
+    private final AesKey aesKey = new AesKey();
 
     public SChatCommunication(String ip, int port, Map<Integer, ChatHandler> typeHandlerMap) throws InterruptedException {
         sender = new NettyServer().run(ip, port, typeHandlerMap);
     }
 
     public void registerService(AbstractService service){
-        service.setChannel(sender.getChannel());
+        service.setChannel(sender.channel());
     }
 
     public void login(String privateKey) throws Exception {
@@ -49,12 +47,10 @@ public class SChatCommunication {
         //注册回调
         ChatHandlerIdRecall.addRecall(l,
                 (sender,data)->{
-                    String string = data.getString("privateKey");
                     //解密数据
-                    string = ECCUtils.decryptByPrivateKey(string, privateKeyBase64);
-                    //将私钥存入
-                    this.privateKey = string;
-                    isLogin.set(1);
+                    aesKey.aesKey = ECCUtils.decrypt(data.getString("data"), privateKeyBase64);
+                    //标记登录
+                    aesKey.isLogin.set(1);
                 });
         //消息封装
         ChatMessage chatMessage = new ChatMessage();
@@ -62,8 +58,12 @@ public class SChatCommunication {
         chatMessage.setData(privateKeyData);
         chatMessage.setType(ChatType.SYSTEM.getId());
         chatMessage.setMapping(ChatMapping.LOGIN.getMapping());
-
         sender.send(chatMessage);
     }
 
+
+    static class AesKey{
+        public String aesKey;
+        public final AtomicInteger isLogin = new AtomicInteger(0);
+    }
 }
